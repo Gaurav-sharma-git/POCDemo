@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: user-service
+
+
+eureka:
+  instance:
+    hostname: localhost
+
+
+
+management:
+  health:
+    circuit-breakers:
+      enable: true
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+resilience4j:
+  circuit breaker:
+    configs:
+      default:
+        registerHealthIndicator: true
+    instances:
+      TodoServiceBreaker:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationOpenState: 6s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
