@@ -7,6 +7,7 @@ import java.util.List;
 public interface TodoService {
     List<Todo> getTodosByUserId(Long userId);
 
+    List<Todo> getAllTodo();
     Todo saveTodo(Todo todo);
 
     Todo updateTodoStatus(Long id , String status);
