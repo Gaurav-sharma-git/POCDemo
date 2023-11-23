@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-@FeignClient(url = "http://localhost:8083", name = "Todo-service")
+@FeignClient("Todo-service")
 public interface TodoServiceClient {
 
     @GetMapping("/todo/{userId}")

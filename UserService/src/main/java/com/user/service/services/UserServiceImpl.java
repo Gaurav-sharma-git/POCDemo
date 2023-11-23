@@ -50,8 +50,8 @@ public class UserServiceImpl implements UserService{
     @Cacheable(value = "userCache", key = "#id")
     public User getUser(Long id) {
         User user= userRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("user not found with id"+id));
-        List<Todo> todoList= todoServiceClient.getTodosByUserId(id);
-        user.setTodo(todoList);
+        //List<Todo> todoList= todoServiceClient.getTodosByUserId(id);
+        //user.setTodo(todoList);
         return user;
     }
 

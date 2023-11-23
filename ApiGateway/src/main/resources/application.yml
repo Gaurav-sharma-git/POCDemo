@@ -5,3 +5,16 @@ server:
 spring:
   application:
     name: API-GATEWAY
+
+  cloud:
+    gateway:
+      routes:
+        - id: USER-SERVICE
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/users/**
+
+        - id: USER-SERVICE
+          uri: lb://TODO-SERVICE
+          predicates:
+            - Path=/todo/**

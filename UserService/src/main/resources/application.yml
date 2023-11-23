@@ -25,18 +25,27 @@ management:
 
 
 resilience4j:
+#  timelimiter:
+#    configs:
+#      default:
+#        timeoutDuration: 20000
+#        cancelRunningFuture: true
+#        registerHealthIndicator: true
+#    instances:
+#      myTimeLimiter:
+#        baseConfig: default
   circuitbreaker:
     configs:
       default:
         registerHealthIndicator: true
-    instances:
-      TodoServiceBreaker:
-        registerHealthIndicator: true
-        eventConsumerBufferSize: 10
-        failureRateThreshold: 50
-        minimumNumberOfCalls: 5
-        automaticTransitionFromOpenToHalfOpenEnabled: true
-        waitDurationInOpenState: 10s
-        permittedNumberOfCallsInHalfOpenState: 3
-        slidingWindowSize: 10
-        slidingWindowType: COUNT_BASED
+#    instances:
+#      TodoServiceBreaker:
+#        registerHealthIndicator: true
+#        eventConsumerBufferSize: 10
+#        failureRateThreshold: 50
+#        minimumNumberOfCalls: 5
+#        automaticTransitionFromOpenToHalfOpenEnabled: true
+#        waitDurationInOpenState: 10s
+#        permittedNumberOfCallsInHalfOpenState: 3
+#        slidingWindowSize: 10
+#        slidingWindowType: COUNT_BASED
