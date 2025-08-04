@@ -68,8 +68,8 @@ public class ArticleController {
         return new ResponseEntity<>("No Articles exists", HttpStatus.NOT_FOUND);
     }
 
-    public void mymethod(){
-        System.out.println("jfdkfjds");
+    public void mymethodneww(){
+        System.out.println("hfdd");
     }
 }
 
